@@ -32,6 +32,7 @@
   display: inline-block;
   font-size: 16px;
   padding: 10px 20px;
+  background: #3326e9;
   border-radius: 4px;
   text-align: center;
 }
@@ -41,10 +42,14 @@
   gap: 16px;
 }
 
-.colums_button {
+.colums__button {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+}
+
+#delete {
+  background-color: red;
 }
 
 /*# sourceMappingURL=style.css.map */

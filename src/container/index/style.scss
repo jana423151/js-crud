@@ -40,4 +40,12 @@
 		color: white;
 		border-radius: 10px;
 	}
+
+	&__button:hover {
+		opacity: 0.8;
+	}
+
+	.checkbox__label {
+		color: silver;
+	}
 }

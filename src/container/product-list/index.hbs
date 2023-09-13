@@ -7,13 +7,9 @@
 		<div class="form">
 			<h1 class="form__title">Список товарів</h1>
 			<div class="user-list">
-				{{#with data.products}}
 				<div class="product">
-					{{#each list}}
 					{{> product-card}}
-					{{/each}}
 				</div>
-				{{/with}}
 			</div>
 		</div>
 		<div class="button">

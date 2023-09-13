@@ -30,6 +30,8 @@
   border: 1px solid #ddd;
   padding: 8px;
   border-radius: 20px;
+  background-color: #3326e9;
+  color: white;
 }
 .form__colums {
   display: grid;
