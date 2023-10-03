@@ -1,7 +1,6 @@
 @use '../../lib/service.scss' as s;
 
 @use '../../component/heading/style.scss' as heading;
-@use '../../component/purchase-product/style.scss' as purchaseProduct;
 @use '../../component/button/style.scss' as button;
 
 .main {
@@ -11,9 +10,21 @@
 	padding: s.space(10);
 }
 
-.product-list {
-	width: 100%;
-	display: grid;
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: s.space(6);
+}
+
+.card__block {
+    display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: s.space(5);
+    gap: s.space(10);
+}
+
+.purchase-item__block {
+	display: flex;
+	flex-direction: column;
+	gap: s.space(4);
+	align-items: flex-start;
 }

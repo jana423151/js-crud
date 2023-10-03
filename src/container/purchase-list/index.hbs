@@ -1,0 +1,12 @@
+<main class="main">
+  {{>heading}}
+  <section class="purchase-list">
+    {{#with data.purchases}}
+    {{#each list}}
+    {{> purchase-item}}
+    {{>divider}}
+    {{/each}}
+    {{/with}}
+  </section>
+</main>
+

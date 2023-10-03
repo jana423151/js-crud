@@ -1,0 +1,41 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../component/heading/style.scss' as heading;
+@use '../../component/button/style.scss' as button;
+
+.heading__title{
+  color:  #0050FF;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 100%; 
+}
+
+.purchase-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; 
+}
+
+.purchase-block {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px; 
+}
+
+.purchase-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.text {
+  margin-top: 5px;
+}

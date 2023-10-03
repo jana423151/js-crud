@@ -1,0 +1,43 @@
+<div class="main">
+  <div class="title">Інформація про замовлення</div>
+  {{#with data}}
+  <div class="order-id">
+    ID: <span>{{id}}</span>
+  </div>
+  <hr>
+  <div class="order-details">
+    <div class="column">
+      <span>Ім'я: {{firstname}}</span>
+      <span>Телефон: {{phone}}</span>
+    </div>
+    <div class="column">
+      <span>Прізвище: {{lastname}}</span>
+      <span>Емайл: {{email}}</span>
+    </div>
+  </div>
+  <hr>
+  <div class="order-product">
+    <span>Назва товару: {{product}}</span>
+  </div>
+  <div class="order-comment">
+    <span>Коментар: {{comment}}</span>
+  </div>
+  <hr>
+  <div class="order-summary">
+    <div class="features-column">
+      <span>Вартість товарів: {{productPrice}}</span>
+    </div>
+    <div class="features-column">
+      <span>Сума до сплати: {{totalPrice}}</span>
+    </div>
+    <div class="features-column">
+      <span>Вартість доставки: {{deliveryPrice}}</span>
+    </div>
+    <div class="features-column">
+      <span>Нараховані бонуси: {{bonus}}</span>
+    </div>
+  </div>
+  <hr>
+  <a href="/purchase-edit?id={{id}}">{{>button text="Змінити дані"}}</a>
+  {{/with}}
+</div>

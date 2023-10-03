@@ -1,0 +1,63 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../component/heading/style.scss' as heading;
+@use '../../component/purchase-product/style.scss' as purchaseProduct;
+@use '../../component/field/style.scss' as field;
+@use '../../component/divider/style.scss' as divider;
+@use '../../component/button/style.scss' as button;
+
+.main {
+	display: flex;
+  flex-direction: column;
+	gap: s.space(10);
+	padding: s.space(10);
+	border: 1px solid s.color(light);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2)
+}
+
+.title{
+   color: #0050FF;
+   font-size: 40px;
+   font-style: normal;
+   font-weight: 500;
+}
+
+.order-id {
+  text-align: left;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.column {
+  display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: s.space(10);
+	padding: s.space(5);
+}
+
+.order-summary {
+  display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: s.space(10);
+	padding: s.space(5);
+}
+
+.order-product {
+	padding: s.space(5);
+}
+
+.order-comment {
+  padding: s.space(5);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+.button {
+  margin-top: 20;
+  width: 100%;
+}
