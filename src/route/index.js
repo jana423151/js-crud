@@ -304,44 +304,49 @@ router.get('/spotify-track-add', function (req, res) {
   });
 });
 
-router.post('/spotify-track-add', async function (req, res) {
-  const playlistIdToAddTo = Number(req.body.playlistId); 
-  const trackIdToAdd = Number(req.body.trackId); 
+router.post('/spotify-track-add', function (req, res) {
+  const playlistId = Number(req.body.playlistId)
+  const trackId = Number(req.body.trackId)
 
-  try {
-    const playlist = await Playlist.getById(playlistIdToAddTo);
+  const playlist = Playlist.getById(playlistId)
 
-    if (!playlist) {
-      throw new Error('Плейлист не знайдено');
-    }
-
-    const trackToAdd = await Track.getById(trackIdToAdd);
-
-    if (!trackToAdd) {
-      throw new Error('Трек не знайдено');
-    }
-
-    // Додаємо трек до плейлисту
-    playlist.addTrack(trackToAdd);
-
-    // Оновлюємо кількість треків у плейлисті
-    playlist.amount = playlist.tracks.length;
-
-    // Редіректимо на сторінку з плейлистом, де ви відображаєте оновлений список треків
-    res.redirect(`/spotify-playlist?id=${playlistIdToAddTo}`);
-  } catch (error) {
-    // Обробка помилок
-    res.render('alert', {
+  if (!playlist) {
+    return res.render('alert', {
       style: 'alert',
       data: {
         message: 'Помилка',
-        info: error.message, // Виводимо текст помилки
-        link: `/spotify-playlist?id=${playlistIdToAddTo}`,
+        info: 'Такого плейліста не знайдено',
+        link: `/spotify-playlist?id=${playlistId}`,
       },
-    });
+    })
   }
-});
 
+  const trackToAdd = Track.getList().find(
+    (track) => track.id === trackId,
+  )
+
+  if (!trackToAdd) {
+    return res.render('alert', {
+      style: 'alert',
+      data: {
+        message: 'Помилка',
+        info: 'Такого треку не знайдено',
+        link: `/spotify-track-add?playlistId=${playlistId}`,
+      },
+    })
+  }
+
+  playlist.tracks.push(trackToAdd)
+
+  res.render('spotify-playlist', {
+    style: 'spotify-playlist',
+    data: {
+      playlistId: playlist.id,
+      tracks: playlist.tracks,
+      name: playlist.name,
+    },
+  })
+})
 // ================================================================
 
 router.get('/', async function (req, res) {
