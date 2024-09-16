@@ -1,0 +1,10 @@
+$colorMap: (
+	light: #ddd,
+	button: #3326e9,
+	words_button: white,
+	danger: red,
+);
+
+@function color ($key) {
+	@return map-get($colorMap, $key);
+}
